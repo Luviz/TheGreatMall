@@ -2,7 +2,7 @@
 using System;
 
 namespace GMeye {
-
+	//update
 
 	class UI {
 		private Mall Mall;
@@ -13,6 +13,7 @@ namespace GMeye {
 			"Hire/Fire an emplyee",
 			"EXIT"
 		};
+
 		
 		public UI() {
 			Mall = new Mall();

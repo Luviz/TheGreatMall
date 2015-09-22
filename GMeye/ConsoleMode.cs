@@ -7,30 +7,29 @@ using System.Threading.Tasks;
 
 namespace GMeye {
 	public class ConsoleMode {
-		private readonly string[] Commands = { "quit", "ls", "add", "sort", "hire", "fire" , "help"};
+		private readonly string[] Commands = { "quit", "ls", "add", "sort", "hire", "fire", "help" };
 		private Mall Mall;
 		public ConsoleMode(Mall mall) {
 			Console.WriteLine("welcome to Great Mall eye");
 			Console.WriteLine("press help to get commnds");
 			Console.WriteLine("warning key sensteive!");
 			this.Mall = mall;
-			init();	
+			init();
 		}
 
 		private void init() {
 			bool keepruning = true;
 			while (keepruning) {
 				Console.Write("> ");
-				string [] userInput = Console.ReadLine().Split(' ');
+				string[] userInput = Console.ReadLine().Split(' ');
 				switch (userInput[0]) {
 					case "quit":
 						keepruning = false;
 						break;
 					case "ls":
 						Console.WriteLine("{0,-16} {1, -8} {2, -25} {3}", "Name", "Address", "Type", "employee");
-						foreach (Store s in Mall.Stores)
-							Console.WriteLine(s);
-							break;
+						Mall.Stores.ForEach(Console.WriteLine);
+						break;
 					case "add":
 						Add(userInput);
 						break;
@@ -42,8 +41,8 @@ namespace GMeye {
 						Mall.Stores.Sort();
 						break;
 					case "help":
-						foreach(string s in Commands)
-							Console.WriteLine(s); 
+						foreach (string s in Commands)
+							Console.WriteLine(s);
 						break;
 					case "hire":
 						if (userInput.Count() > 1)
